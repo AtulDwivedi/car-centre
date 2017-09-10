@@ -1,8 +1,12 @@
-package com.atuldwivedi.carcentre.learn.spring.cfg;
+package com.atuldwivedi.carcentre.learn.spring.carapp.v6_jcfgc;
 
-public class PhilipsMusicSystem implements MusicSystem {
+import org.springframework.stereotype.Component;
 
-	public PhilipsMusicSystem() {
+@Component
+public class BoseMusicSystem implements MusicSystem {
+
+	
+	public BoseMusicSystem(){
 		System.out.println(this.getClass().getSimpleName()+" is being constructed.");
 	}
 	

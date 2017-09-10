@@ -1,16 +1,25 @@
-package com.atuldwivedi.carcentre.learn.spring.cfg;
+package com.atuldwivedi.carcentre.learn.spring.carapp.v5_ann;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class HondaAmaze implements Car {
 
+	@Autowired
+	@Qualifier("philipsMusicSystem")
 	private MusicSystem musicSystem;
 
+	@Value("20.5")
 	private double mileage;
 
+	@Value("Grey")
 	private String color;
-
-	public HondaAmaze(MusicSystem musicSystem) {
+	
+	public HondaAmaze() {
 		System.out.println(this.getClass().getSimpleName() + " is being constructed.");
-		this.musicSystem = musicSystem;
 	}
 
 	@Override
@@ -19,13 +28,4 @@ public class HondaAmaze implements Car {
 				+ " at speed of 80KMPH. It gives mileage of " + mileage);
 		musicSystem.playMusic();
 	}
-
-	public void setMileage(double mileage) {
-		this.mileage = mileage;
-	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}
-
 }

@@ -1,4 +1,4 @@
-package com.atuldwivedi.carcentre.learn.spring.jcfgc;
+package com.atuldwivedi.carcentre.learn.spring.carapp.v4_cfg;
 
 import org.springframework.stereotype.Component;
 

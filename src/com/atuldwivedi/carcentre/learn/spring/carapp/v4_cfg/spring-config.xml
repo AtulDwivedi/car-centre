@@ -9,29 +9,29 @@
 
 	<!-- Dependencies -->
 	<bean id="sonyMusicSystem"
-		class="com.atuldwivedi.carcentre.learn.spring.cfg.SonyMusicSystem" />
+		class="com.atuldwivedi.carcentre.learn.spring.carapp.v4_cfg.SonyMusicSystem" />
 
 	<bean id="philipsMusicSystem"
-		class="com.atuldwivedi.carcentre.learn.spring.cfg.PhilipsMusicSystem" />
+		class="com.atuldwivedi.carcentre.learn.spring.carapp.v4_cfg.PhilipsMusicSystem" />
 
 	<bean id="boseMusicSystem"
-		class="com.atuldwivedi.carcentre.learn.spring.cfg.BoseMusicSystem" />
+		class="com.atuldwivedi.carcentre.learn.spring.carapp.v4_cfg.BoseMusicSystem" />
 
 
 
 	<!-- Dependents -->
-	<bean id="hondaCity" class="com.atuldwivedi.carcentre.learn.spring.cfg.HondaCity">
+	<bean id="hondaCity" class="com.atuldwivedi.carcentre.learn.spring.carapp.v4_cfg.HondaCity">
 		<constructor-arg ref="sonyMusicSystem" />
 	</bean>
 
-	<bean id="hondaAmaze" class="com.atuldwivedi.carcentre.learn.spring.cfg.HondaAmaze"
+	<bean id="hondaAmaze" class="com.atuldwivedi.carcentre.learn.spring.carapp.v4_cfg.HondaAmaze"
 		scope="singleton">
 		<constructor-arg ref="philipsMusicSystem" />
 		<property name="mileage" value="30.9" />
 		<property name="color" value="Grey" />
 	</bean>
 
-	<bean id="hondaJazz" class="com.atuldwivedi.carcentre.learn.spring.cfg.HondaJazz"
+	<bean id="hondaJazz" class="com.atuldwivedi.carcentre.learn.spring.carapp.v4_cfg.HondaJazz"
 		scope="singleton">
 		<property name="musicSystem" ref="boseMusicSystem" />
 		<property name="mileage" value="${hondaJazz.mileage}" />

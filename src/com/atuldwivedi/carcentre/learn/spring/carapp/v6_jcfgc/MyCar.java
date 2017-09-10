@@ -1,14 +1,12 @@
-package com.atuldwivedi.carcentre.learn.spring.jcfgc;
+package com.atuldwivedi.carcentre.learn.spring.carapp.v6_jcfgc;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MyCar {
 
 	public static void main(String[] args) {
 
 		// just created the spring container
-		
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(MySpringConfig.class);
 
 		// retrieving the bean from Spring Container

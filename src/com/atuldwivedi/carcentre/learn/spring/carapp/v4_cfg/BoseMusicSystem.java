@@ -1,14 +1,12 @@
-package com.atuldwivedi.carcentre.learn.spring.ann;
+package com.atuldwivedi.carcentre.learn.spring.carapp.v4_cfg;
 
-import org.springframework.stereotype.Component;
+public class BoseMusicSystem implements MusicSystem {
 
-@Component
-public class SonyMusicSystem implements MusicSystem {
 	
-	public SonyMusicSystem() {
+	public BoseMusicSystem(){
 		System.out.println(this.getClass().getSimpleName()+" is being constructed.");
 	}
-
+	
 	@Override
 	public void playMusic() {
 		System.out.println("Playing music on " + this.getClass().getSimpleName());

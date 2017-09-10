@@ -1,4 +1,4 @@
-package com.atuldwivedi.carcentre.learn.spring.cfg;
+package com.atuldwivedi.carcentre.learn.spring.carapp.v4_cfg;
 
 public class HondaJazz implements Car {
 
