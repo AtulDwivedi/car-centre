@@ -11,7 +11,7 @@ public class MyCar {
 		// just creatred the spring container
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring-core.xml");
 		
-		Car car  = (Car)ctx.getBean("car");
+		Car car  = (Car)ctx.getBean("theHondaCity");
 		
 		//singleton
 //		Car car1  = (Car)ctx.getBean("car");
@@ -20,6 +20,8 @@ public class MyCar {
 		
 //		Car car = CarFactory.getCar("amaze");
 		System.out.println(car.driveTheCar());
+		
+		ctx.close();
 	}
 
 }
