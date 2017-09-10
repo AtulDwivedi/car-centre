@@ -5,17 +5,20 @@
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-	<context:property-placeholder location="classpath:car.properties" />
-<context:component-scan base-package="com.atuldwivedi.carcentre.learn.spring.core" />
-	<bean id="musicSystem"
-		class="com.atuldwivedi.carcentre.learn.spring.core.cfg.BoseMusicSystem" />
 
-	<!-- <bean id="car"
-		class="com.atuldwivedi.carcentre.learn.spring.core.cfg.HondaCity" scope="singleton">
-		<constructor-arg ref="musicSystem" />
+
+	<context:property-placeholder location="classpath:car.properties" />
+
+
+	<bean id="musicSystem"
+		class="com.atuldwivedi.carcentre.learn.spring.cfg.BoseMusicSystem" />
+
+	<bean id="car" class="com.atuldwivedi.carcentre.learn.spring.cfg.HondaJazz"
+		scope="singleton">
+		<!-- <constructor-arg ref="musicSystem" /> -->
 		<property name="musicSystem" ref="musicSystem" />
-		<property name="mileage" value="${hondaCity.mileage}" />
-		<property name="color" value="${hondaCity.color}" />
-	</bean> -->
+		<!-- <property name="mileage" value="${hondaCity.mileage}" />
+		<property name="color" value="${hondaCity.color}" /> -->
+	</bean>
 
 </beans>

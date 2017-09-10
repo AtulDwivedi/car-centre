@@ -1,11 +1,11 @@
-package com.atuldwivedi.carcentre.learn.spring.core.cfg;
+package com.atuldwivedi.carcentre.learn.spring.cfg;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 import org.springframework.stereotype.Component;
 
-@Component("theHondaCity")
+//@Component("theHondaCity")
 public class HondaCity implements Car {
 
 	private MusicSystem musicSystem;
@@ -21,10 +21,6 @@ public class HondaCity implements Car {
 		this.color = color;
 	}
 
-	@Override
-	public String driveTheCar() {
-		return "Driving " + color +" "+ this.getClass().getSimpleName() + " at speed of 80KMPH with mileage of " + mileage;
-	}
 
 	public void setMusicSystem(MusicSystem musicSystem) {
 		this.musicSystem = musicSystem;
@@ -39,5 +35,11 @@ public class HondaCity implements Car {
 	@PreDestroy
 	public void removeTheNumber(){
 		System.out.println("Number is removed.");
+	}
+
+	@Override
+	public void driveTheCar() {
+		// TODO Auto-generated method stub
+		
 	}
 }

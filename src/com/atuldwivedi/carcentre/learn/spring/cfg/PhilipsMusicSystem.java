@@ -1,6 +1,6 @@
-package com.atuldwivedi.carcentre.learn.spring.core.cfg;
+package com.atuldwivedi.carcentre.learn.spring.cfg;
 
-public class BoseMusicSystem implements MusicSystem {
+public class PhilipsMusicSystem implements MusicSystem {
 
 	@Override
 	public void playMusic() {

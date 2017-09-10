@@ -1,4 +1,4 @@
-package com.atuldwivedi.carcentre.learn.spring.core.cfg;
+package com.atuldwivedi.carcentre.learn.spring.cfg;
 
 public class CarFactory {
 	
@@ -9,7 +9,7 @@ public class CarFactory {
 //			car = new HondaAmaze();
 		}
 		else if (carType.equalsIgnoreCase("jazz")) {
-			car = new HondaJazz();
+//			car = new HondaJazz();
 		}
 		else if (carType.equalsIgnoreCase("city")) {
 			car = new HondaCity();
