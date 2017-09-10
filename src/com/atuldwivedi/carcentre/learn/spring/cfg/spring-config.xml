@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+	<!-- Dependencies -->
+	<bean id="sonyMusicSystem"
+		class="com.atuldwivedi.carcentre.learn.spring.cfg.SonyMusicSystem" />
+
+	<bean id="philipsMusicSystem"
+		class="com.atuldwivedi.carcentre.learn.spring.cfg.PhilipsMusicSystem" />
+
+	<bean id="boseMusicSystem"
+		class="com.atuldwivedi.carcentre.learn.spring.cfg.BoseMusicSystem" />
+
+
+
+	<!-- Dependents -->
+	<bean id="hondaCity" class="com.atuldwivedi.carcentre.learn.spring.cfg.HondaCity">
+		<constructor-arg ref="sonyMusicSystem" />
+	</bean>
+
+	<bean id="hondaAmaze" class="com.atuldwivedi.carcentre.learn.spring.cfg.HondaAmaze"
+		scope="singleton">
+		<constructor-arg ref="philipsMusicSystem" />
+		<property name="mileage" value="30.9" />
+		<property name="color" value="Grey" />
+	</bean>
+
+	<bean id="hondaJazz" class="com.atuldwivedi.carcentre.learn.spring.cfg.HondaJazz"
+		scope="singleton">
+		<property name="musicSystem" ref="boseMusicSystem" />
+		<property name="mileage" value="${hondaJazz.mileage}" />
+		<property name="color" value="${hondaJazz.color}" />
+	</bean>
+
+	<context:property-placeholder location="classpath:car.properties" />
+
+</beans>

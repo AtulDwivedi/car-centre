@@ -1,8 +1,5 @@
 package com.atuldwivedi.carcentre.learn.spring.cfg;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class SonyMusicSystem implements MusicSystem {
 	
 	public SonyMusicSystem() {

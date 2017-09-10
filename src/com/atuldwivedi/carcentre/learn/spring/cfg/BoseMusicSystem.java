@@ -4,7 +4,7 @@ public class BoseMusicSystem implements MusicSystem {
 
 	
 	public BoseMusicSystem(){
-		System.out.println("I'm here");
+		System.out.println(this.getClass().getSimpleName()+" is being constructed.");
 	}
 	
 	@Override
