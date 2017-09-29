@@ -1,14 +1,23 @@
 package com.atuldwivedi.carcentre.learn.spring.mvc;
 
+import java.util.Date;
+
+import javax.validation.constraints.Future;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.atuldwivedi.carcentre.learn.spring.mvc.cust.CompName;
+
 public class Car {
 	
-	@NotNull
+//	@NotNull
+	@CompName(value="Maruti", message="Comp name should start with Maruti")
 	private String carName;
 	
 	@Pattern(regexp="^[a-zA-Z0-9]@[a-z]{10}", message="email pattern")
@@ -34,6 +43,14 @@ public class Car {
 	private Integer number;
 	
 	private String comment;
+	
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	@Future
+	private Date nextEmiDate;
+	
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+	@Past
+	private Date dop;
 	
 	public String getCountryOfOrigin() {
 		return countryOfOrigin;
@@ -110,6 +127,22 @@ public class Car {
 
 	public void setCarEmail(String carEmail) {
 		this.carEmail = carEmail;
+	}
+
+	public Date getDop() {
+		return dop;
+	}
+
+	public void setDop(Date dop) {
+		this.dop = dop;
+	}
+
+	public Date getNextEmiDate() {
+		return nextEmiDate;
+	}
+
+	public void setNextEmiDate(Date nextEmiDate) {
+		this.nextEmiDate = nextEmiDate;
 	}
 
 }

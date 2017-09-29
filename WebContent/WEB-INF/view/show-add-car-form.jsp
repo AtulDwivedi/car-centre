@@ -13,19 +13,19 @@ color:red;
 <body>
 
 <form:form action="processAddCarForm" modelAttribute="car">
-	<form:input path="carName" />
+	Car Name: <form:input path="carName" />
 	<form:errors path="carName" cssClass="errorColor" />
 	<br><br>
 	
-	<form:input path="carEmail" />
+	<%-- Car Email: <form:input path="carEmail" />
 	<form:errors path="carEmail" cssClass="errorColor" />
-	<br><br>
+	<br><br> --%>
 	
 	
-	<form:input path="number" />
+	Number: <form:input path="number" />
 	<form:errors path="number" cssClass="errorColor" />
 	<br><br>
-	<form:input path="carColor" />
+	Color: <form:input path="carColor" />
 	<form:errors path="carColor" cssClass="errorColor" />
 
 <br><br>
@@ -51,6 +51,14 @@ color:red;
 	<br><br>
 	
 	Feedback: <form:textarea path="comment"  /> &nbsp;
+	<br><br>
+	
+	DOP: <form:input type="date" path="dop" placeholder="yyyy-mm-dd" />
+	<form:errors path="dop" cssClass="errorColor" />
+	<br><br>
+	
+	Next EMI Date: <form:input type="date" path="nextEmiDate" placeholder="yyyy-mm-dd" />
+	<form:errors path="nextEmiDate" cssClass="errorColor" />
 	<br><br>
 	
 	<input type="submit" value="Submit" />
