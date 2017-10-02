@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class HibernateHelloWorld {
+public class QueryTheCar {
 	public static void main(String[] args) {
 
 		SessionFactory sessionFactory =  new Configuration()
@@ -17,13 +17,12 @@ public class HibernateHelloWorld {
 		try{
 			Session session = sessionFactory.getCurrentSession();
 			session.beginTransaction();
-			Car car = new Car(1003l, "HondaJazz", "Green");
-			session.save(car);
-//			Car car = session.get(Car.class, 1001);
-//			System.out.println(car.getName());
 			
-//			List<Car> cars = session.createQuery("from Car").getResultList();
-//			System.out.println(cars);
+//			List<Car> cars = session.createQuery("from Car c where c.name = 'HondaJazz1'").getResultList();
+//			List<Car> cars = session.createQuery("from Car c where c.name = 'HondaJazz' OR c.color = 'Red'").getResultList();
+			List<Car> cars = session.createQuery("from Car c where c.name LIKE 'Honda%'").getResultList();
+			System.out.println(cars.size());
+			System.out.println(cars);
 			
 			session.getTransaction().commit();
 		}
