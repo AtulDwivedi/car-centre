@@ -13,7 +13,7 @@ public class UpdateTheCar {
 				.configure("hibernate.cfg.xml")
 				.addAnnotatedClass(Car.class)
 				.buildSessionFactory();
-		
+		 
 		try{
 			Session session = sessionFactory.getCurrentSession();
 			session.beginTransaction();
