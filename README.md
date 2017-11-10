@@ -1,4 +1,3 @@
-# car-cantre
 The **car-cantre** project provides complete car solution.
 
 # Dependencies
