@@ -1,5 +1,5 @@
 # car-cantre
-The complete car solution
+The **car-cantre** project provides complete car solution.
 
 # Dependencies
 ## JARs
@@ -10,5 +10,5 @@ The complete car solution
 * Apache Commons Logging JAR file
 
 # All Contents
-* [Spring Framework Content](https://atuldwivedi.github.io/car-centre/docs/spring-content.md)
+* [Spring Framework Content](https://atuldwivedi.github.io/car-centre/docs/spring-content)
 
