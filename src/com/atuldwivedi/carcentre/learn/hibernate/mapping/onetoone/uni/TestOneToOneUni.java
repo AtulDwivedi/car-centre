@@ -1,4 +1,4 @@
-package com.atuldwivedi.carcentre.learn.hibernate.mapping.onetoone;
+package com.atuldwivedi.carcentre.learn.hibernate.mapping.onetoone.uni;
 
 import java.util.List;
 
@@ -17,28 +17,30 @@ public class TestOneToOneUni {
 				.addAnnotatedClass(CarDetail.class).buildSessionFactory();
 		session = sessionFactory.getCurrentSession();
 
-//		saveTheCar();
-		getAllCars();
-//getCar();
-//		deleteTheCar();
+		 saveTheCar();
+//		 getAllCars();
+//		 getCar();
+//		 deleteTheCar();
 	}
 
 	private static void deleteTheCar() {
-try {
-			
+		try {
+
 			// begin the transaction
-						session.beginTransaction();
+			session.beginTransaction();
 
-						// perform the transaction
-						Car car = session.get(Car.class, 1l);
-						session.delete(car);
-						
-						/*CarDetail carDtl = session.get(CarDetail.class, 2l);
-						session.delete(carDtl);*/
+			// perform the transaction
+			Car car = session.get(Car.class, 1l);
+			session.delete(car);
 
-						// submit/finish the transaction
-						session.getTransaction().commit();
 			
+//			 CarDetail carDtl = session.get(CarDetail.class, 2l);
+//			 session.delete(carDtl);
+			 
+
+			// submit/finish the transaction
+			session.getTransaction().commit();
+
 		} finally {
 			session.close();
 			sessionFactory.close();
@@ -46,18 +48,18 @@ try {
 	}
 
 	private static void getCar() {
-try {
-			
+		try {
+
 			// begin the transaction
-						session.beginTransaction();
+			session.beginTransaction();
 
-						// perform the transaction
-						Car car = session.get(Car.class, 1l);
-						System.out.println(car);
+			// perform the transaction
+			Car car = session.get(Car.class, 1l);
+			System.out.println(car);
 
-						// submit/finish the transaction
-						session.getTransaction().commit();
-			
+			// submit/finish the transaction
+			session.getTransaction().commit();
+
 		} finally {
 			session.close();
 			sessionFactory.close();
@@ -66,17 +68,17 @@ try {
 
 	private static void getAllCars() {
 		try {
-			
+
 			// begin the transaction
-						session.beginTransaction();
+			session.beginTransaction();
 
-						// perform the transaction
-						List<Car> cars = session.createQuery("from Car").getResultList();
-						System.out.println(cars);
+			// perform the transaction
+			List<Car> cars = session.createQuery("from Car").getResultList();
+			System.out.println(cars);
 
-						// submit/finish the transaction
-						session.getTransaction().commit();
-			
+			// submit/finish the transaction
+			session.getTransaction().commit();
+
 		} finally {
 			session.close();
 			sessionFactory.close();

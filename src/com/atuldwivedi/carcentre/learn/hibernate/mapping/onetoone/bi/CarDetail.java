@@ -1,4 +1,4 @@
-package com.atuldwivedi.carcentre.learn.hibernate.mapping.onetoone;
+package com.atuldwivedi.carcentre.learn.hibernate.mapping.onetoone.bi;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "JM3001_ONETOONE_UNI.CAR_DETAIL")
+@Table(name = "JM3001_ONETOONE_BI.CAR_DETAIL")
 public class CarDetail {
 
 	@Id
@@ -28,12 +28,12 @@ public class CarDetail {
 	@Column(name = "abs")
 	private boolean abs;
 	
-	@OneToOne(cascade=CascadeType.ALL, mappedBy="carDetail")
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="car_id")
 	private Car car;
 
 	public CarDetail() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public CarDetail(String color, double mileage, boolean abs) {
@@ -87,14 +87,4 @@ public class CarDetail {
 	public void setCar(Car car) {
 		this.car = car;
 	}
-
-	// create fields
-
-	// create constructors
-
-	// create getter setter
-
-	// generate toString
-
-	// map the table and columns
 }

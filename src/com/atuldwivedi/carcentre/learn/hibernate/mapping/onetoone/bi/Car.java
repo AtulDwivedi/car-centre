@@ -1,4 +1,4 @@
-package com.atuldwivedi.carcentre.learn.hibernate.mapping.onetoone;
+package com.atuldwivedi.carcentre.learn.hibernate.mapping.onetoone.bi;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "JM3001_ONETOONE_UNI.CAR")
+@Table(name = "JM3001_ONETOONE_BI.CAR")
 public class Car {
 
 	/**
@@ -26,18 +26,16 @@ public class Car {
 	@Column(name = "name")
 	private String name;
 
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="CAR_DETAIL_ID")
+	@OneToOne(mappedBy="car", cascade=CascadeType.ALL)
 	private CarDetail carDetail;
 
 	public Car() {
 		super();
 	}
 
-	public Car(String name, CarDetail carDetail) {
+	public Car(String name) {
 		super();
 		this.name = name;
-		this.carDetail = carDetail;
 	}
 
 	public long getId() {
@@ -60,9 +58,20 @@ public class Car {
 		return carDetail;
 	}
 
+	// utility method for handshaking
+	// you can also give name addCarDetail to this method
 	public void setCarDetail(CarDetail carDetail) {
+		carDetail.setCar(this);
 		this.carDetail = carDetail;
 	}
+	
+	// utility method for handshaking
+	public void removeCarDetail() {
+        if ( carDetail != null ) {
+        	carDetail.setCar( null );
+            this.carDetail = null;
+        }
+    }
 
 	@Override
 	public String toString() {
