@@ -17,9 +17,9 @@ public class TestOneToOneBi {
 				.addAnnotatedClass(CarDetail.class).buildSessionFactory();
 
 		try {
-			saveCarOrCarDetail();
-			getAllCars();
-			getCarOrCarDetail();
+//			saveCarOrCarDetail();
+//			getAllCars();
+//			getCarOrCarDetail();
 			deleteCarOrCarDetail();
 		} finally {
 			session.close();

@@ -1,13 +1,10 @@
 package com.atuldwivedi.carcentre.learn.hibernate.mapping.onetoone.uni;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -28,9 +25,6 @@ public class CarDetail {
 	@Column(name = "abs")
 	private boolean abs;
 	
-	@OneToOne(cascade=CascadeType.ALL, mappedBy="carDetail")
-	private Car car;
-
 	public CarDetail() {
 		super();
 	}
@@ -77,13 +71,5 @@ public class CarDetail {
 	@Override
 	public String toString() {
 		return "CarDetail [id=" + id + ", color=" + color + ", mileage=" + mileage + ", abs=" + abs + "]";
-	}
-
-	public Car getCar() {
-		return car;
-	}
-
-	public void setCar(Car car) {
-		this.car = car;
 	}
 }

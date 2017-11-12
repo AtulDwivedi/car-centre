@@ -13,12 +13,16 @@ public class TestOneToOneUni {
 	private static Session session;
 
 	public static void main(String[] args) {
-		sessionFactory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Car.class)
-				.addAnnotatedClass(CarDetail.class).buildSessionFactory();
+		sessionFactory = new Configuration()
+				.configure("hibernate.cfg.xml")
+				.addAnnotatedClass(Car.class)
+				.addAnnotatedClass(CarDetail.class)
+				.buildSessionFactory();
+		
 		session = sessionFactory.getCurrentSession();
 
-		 saveTheCar();
-//		 getAllCars();
+//		 saveTheCar();
+		 getAllCars();
 //		 getCar();
 //		 deleteTheCar();
 	}
@@ -32,11 +36,6 @@ public class TestOneToOneUni {
 			// perform the transaction
 			Car car = session.get(Car.class, 1l);
 			session.delete(car);
-
-			
-//			 CarDetail carDtl = session.get(CarDetail.class, 2l);
-//			 session.delete(carDtl);
-			 
 
 			// submit/finish the transaction
 			session.getTransaction().commit();
