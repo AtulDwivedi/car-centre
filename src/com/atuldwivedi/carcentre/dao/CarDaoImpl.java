@@ -35,7 +35,6 @@ public class CarDaoImpl implements CarDao {
 	@Override
 	public List<HondaCity> getCars() {
 		List<HondaCity> retVal = null;
-
 		try {
 			sessionFactory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(HondaCity.class)
 					.buildSessionFactory();
