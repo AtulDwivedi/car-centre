@@ -14,7 +14,14 @@
 	Model: <form:input path="model" />
 		<form:errors path="model" cssClass="errorColor" />
 		<br>
-	Color: <form:input path="color" />
+	Color: <form:select path="color" >
+	<form:option value="NOT MENTIONED">Select</form:option>
+	<form:option value="RED">Red</form:option>
+	<form:option value="BLUE">Blue</form:option>
+	<form:option value="BLACK">Black</form:option>
+	<form:option value="WHITE">White</form:option>
+	<form:option value="SILVER">Silver</form:option>
+	</form:select>
 		<br>	
 
 Mileage: <form:input path="mileage" />

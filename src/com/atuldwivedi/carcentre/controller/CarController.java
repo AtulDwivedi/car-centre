@@ -29,6 +29,7 @@ public class CarController {
 
 	@RequestMapping("/process-add-car")
 	public String processAddCar(@ModelAttribute("car") HondaCity hondaCity, Model model) {
+		
 		CarDao carDao = new CarDaoImpl();
 		Long carPk = carDao.addCar(hondaCity);
 		List<HondaCity> cars = null;
