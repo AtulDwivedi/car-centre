@@ -50,5 +50,25 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return retVal;		 		
 
 }
+	@Override
+	public List<EmployeeRegistration> loginEmployee(String uname, String upass) {
+		
+		List<EmployeeRegistration> retVal = null;
+		try {
+		sessionFactory=new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(EmployeeRegistration.class)
+				.buildSessionFactory();
+		session=sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		retVal =session.createQuery("from EmployeeRegistration emp where emp.empName='uname' AND emp.empEmail='upass'").getResultList();		
+		session.getTransaction().commit();			
+		}
+		finally {
+			session.close();
+			sessionFactory.close();
+			
+		}
+		return retVal;
+		
+	}
 	
 }

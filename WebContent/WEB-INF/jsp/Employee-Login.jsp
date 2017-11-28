@@ -8,13 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Employee Registration</h1>
-<form:form action="employee-save" modelAttribute="emp">
+<h1>Employee Login</h1>
+<form:form action="employee-profile" modelAttribute="emp">
 Name: <form:input path="empName"/><br><br>
 Email: <form:input path="empEmail"/><br><br>
-Phone: <form:input path="empPhone"/><br><br>
 <input type="submit">
 </form:form> 
-<a href="employee-login">Login</a>
 </body>
 </html>

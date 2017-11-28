@@ -8,5 +8,6 @@
 </head>
 <body>
 <h1>Welcome....</h1>
+<a href="employee/registration">Employee</a>
 </body>
 </html>
