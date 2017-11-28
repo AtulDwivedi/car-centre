@@ -8,10 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>Employee Profile</h1>
+<table border="1">
+<tr><th>Name</th><th>Email</th><th>Phone</th></tr>
 <c:forEach items="${emp}" var="c">
-${c.empName}<br>
-${c.empEmail}<br>
-${c.empPhone}<br>
+<tr>
+<td>${c.empName}<br></td>
+<td>${c.empEmail}<br></td>
+<td>${c.empPhone}<br></td>
+</tr>
 </c:forEach>
+
+</table>
 </body>
 </html>
