@@ -12,6 +12,9 @@ Table of Contents
 * Hibernate Validator JAR files
 * Apache Commons Logging JAR file
 
+# [Schema Definition](https://atuldwivedi.github.io/car-centre/docs/db/schema)
+
+
 # All Contents
 * [Spring Framework Content](https://atuldwivedi.github.io/car-centre/docs/spring-content)
 
