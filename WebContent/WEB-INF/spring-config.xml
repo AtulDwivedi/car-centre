@@ -32,14 +32,14 @@
 
 
 
-	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="org.h2.Driver" />
 		<property name="jdbcUrl" value="jdbc:h2:~/test" />
 		<property name="user" value="sa" />
 		<property name="password" value="" />
 
 		<property name="minPoolSize" value="1" />
-		<property name="maxPoolSize" value="1" />
+		<property name="maxPoolSize" value="10" />
 		<property name="maxIdleTime" value="5000" />
 	</bean>
 

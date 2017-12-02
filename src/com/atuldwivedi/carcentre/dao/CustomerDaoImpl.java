@@ -1,5 +1,7 @@
 package com.atuldwivedi.carcentre.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -16,38 +18,35 @@ public class CustomerDaoImpl implements CustomerDao {
 	SessionFactory sessionFactory;
 	
 	@Override
-	@Transactional
 	public Long addCustomer(Customer customer) {
 		Session session = sessionFactory.getCurrentSession();
-		return (Long)session.save(customer);
+		Long pk = (Long) session.save(customer);
+		return pk;
 	}
-	
+
 	public Long addCustomerOld(Customer customer) {
-		
-		System.out.println("customerdaolmpl "+customer);
+
+		System.out.println("customerdaolmpl " + customer);
 		Session session = null;
 		Long returnVal = null;
 		try {
-			sessionFactory = new Configuration().configure("hibernate.cfg.xml")
-				.addAnnotatedClass(Customer.class).buildSessionFactory();
+			sessionFactory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Customer.class)
+					.buildSessionFactory();
 			session = sessionFactory.getCurrentSession();
-			
+
 			session.beginTransaction();
-			
-			returnVal = (Long)session.save(customer);
-			
+
+			returnVal = (Long) session.save(customer);
+
 			session.getTransaction().commit();
-			
-		}
-		catch (Exception e) {
+
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		}
-		finally {
+		} finally {
 			session.close();
 			sessionFactory.close();
 		}
-		
-		
+
 		return returnVal;
 	}
 
@@ -61,6 +60,13 @@ public class CustomerDaoImpl implements CustomerDao {
 	public Customer getCustomer(Long ID) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Customer> getCustomers() {
+		Session session = sessionFactory.getCurrentSession();
+		List<Customer> customers = session.createQuery("from Customer order by id").getResultList();
+		return customers;
 	}
 
 }

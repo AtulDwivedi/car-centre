@@ -87,6 +87,14 @@ public class Customer {
 		return "Customer [customerID=" + customerID + ", firstName=" + firstName + ", lastName=" + lastName + ", age="
 				+ age + ", gender=" + gender + ", address=" + address + ", occupation=" + occupation + "]";
 	}
+
+	public Long getCustomerID() {
+		return customerID;
+	}
+
+	public void setCustomerID(Long customerID) {
+		this.customerID = customerID;
+	}
 	
 
 	
