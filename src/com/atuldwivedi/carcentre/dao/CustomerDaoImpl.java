@@ -3,19 +3,29 @@ package com.atuldwivedi.carcentre.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.atuldwivedi.carcentre.user.Customer;
 
+@Repository
 public class CustomerDaoImpl implements CustomerDao {
 
+	@Autowired
 	SessionFactory sessionFactory;
-	Session	session;
 	
 	@Override
+	@Transactional
 	public Long addCustomer(Customer customer) {
+		Session session = sessionFactory.getCurrentSession();
+		return (Long)session.save(customer);
+	}
+	
+	public Long addCustomerOld(Customer customer) {
 		
 		System.out.println("customerdaolmpl "+customer);
-		
+		Session session = null;
 		Long returnVal = null;
 		try {
 			sessionFactory = new Configuration().configure("hibernate.cfg.xml")
