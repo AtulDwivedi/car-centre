@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.atuldwivedi.carcentre.dao.CustomerDao;
 import com.atuldwivedi.carcentre.dao.CustomerDaoImpl;
@@ -21,23 +22,35 @@ public class CustomerController {
 	@Autowired
 	private CustomerDao customerDao;
 
-	@RequestMapping("/registration")
-	public String registerCustomer(Model model) {
-
+	@RequestMapping("/add")
+	public String addCustomer(Model model) {
 		Customer customer = new Customer();
 		model.addAttribute("customer", customer);
-		return "customer-registration";
+		return "add-customer";
+	}
+	
+	@Transactional
+	@RequestMapping("/update")
+	public String updateCustomer(@RequestParam("customerId") Long customerId, Model model) {
+		// fetch the customer from db
+		Customer customer = customerDao.getCustomer(customerId);
+		model.addAttribute("customer", customer);
+		return "add-customer";
 	}
 
 	@Transactional
-	@RequestMapping("/save-customer")
-	public String processRegisterCustomer(@ModelAttribute("customer") Customer customer, Model model) {
+	@RequestMapping("/delete")
+	public String deleteCustomer(@RequestParam("customerId") Long customerId, Model model) {
+		// fetch the customer from db
+		customerDao.deleteCustomer(customerId);
+		return listCustomer(model);
+	}
+	
+	@Transactional
+	@RequestMapping("/save")
+	public String saveCustomer(@ModelAttribute("customer") Customer customer, Model model) {
 
-		// System.out.println("customer controller "+customer);
-		// saving into database
-		// CustomerDao customerDao = new CustomerDaoImpl();
-
-		customerDao.addCustomer(customer);
+		customerDao.addOrupdateCustomer(customer);
 
 		List<Customer> customers = customerDao.getCustomers();
 		model.addAttribute("customers", customers);
@@ -51,4 +64,6 @@ public class CustomerController {
 		model.addAttribute("customers", customers);
 		return "list-customers";
 	}
+	
+	
 }

@@ -14,6 +14,8 @@ public interface CustomerDao {
 
 	public List<Customer> getCustomers();
 	
+	public void addOrupdateCustomer(Customer customer);
 	
+	public void deleteCustomer(Long customerId);
 
 }

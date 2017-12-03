@@ -9,14 +9,14 @@
 </head>
 <body>
 
-<form:form action="save-customer" modelAttribute="customer">
+<form:form action="save" modelAttribute="customer">
 
 firstName : <form:input path="firstName"/>
 lastName : <form:input path="lastName"/>
 age : <form:input path="age"/>
 gender : <form:input path="gender"/>
 occupation: <form:input path="occupation"/>
-
+<form:input path="customerID" type="hidden" />
 <input type="submit" value="save">
 
 </form:form>

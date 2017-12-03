@@ -54,6 +54,7 @@
 
 				</tbody>
 			</table>
+			<a class="btn btn-success" href="add">Add Customer</a>
 		</div>
 		<div class="col-lg-1">&nbsp;</div>
 	</div>

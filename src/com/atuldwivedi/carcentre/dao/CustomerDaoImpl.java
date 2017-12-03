@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +23,12 @@ public class CustomerDaoImpl implements CustomerDao {
 		Session session = sessionFactory.getCurrentSession();
 		Long pk = (Long) session.save(customer);
 		return pk;
+	}
+	
+	@Override
+	public void addOrupdateCustomer(Customer customer) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(customer);
 	}
 
 	public Long addCustomerOld(Customer customer) {
@@ -58,8 +65,8 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	@Override
 	public Customer getCustomer(Long ID) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		return session.get(Customer.class, ID);
 	}
 
 	@Override
@@ -67,6 +74,14 @@ public class CustomerDaoImpl implements CustomerDao {
 		Session session = sessionFactory.getCurrentSession();
 		List<Customer> customers = session.createQuery("from Customer order by id").getResultList();
 		return customers;
+	}
+
+	@Override
+	public void deleteCustomer(Long customerId) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("DELETE FROM Customer WHERE customerID=:customerID");
+		query.setParameter("customerID", customerId);
+		query.executeUpdate();
 	}
 
 }
