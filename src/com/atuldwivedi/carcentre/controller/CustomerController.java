@@ -13,14 +13,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.atuldwivedi.carcentre.dao.CustomerDao;
 import com.atuldwivedi.carcentre.dao.CustomerDaoImpl;
+import com.atuldwivedi.carcentre.service.CustomerService;
 import com.atuldwivedi.carcentre.user.Customer;
 
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
-
+	
 	@Autowired
-	private CustomerDao customerDao;
+	private CustomerService customerService;
 
 	@RequestMapping("/add")
 	public String addCustomer(Model model) {
@@ -33,7 +34,7 @@ public class CustomerController {
 	@RequestMapping("/update")
 	public String updateCustomer(@RequestParam("customerId") Long customerId, Model model) {
 		// fetch the customer from db
-		Customer customer = customerDao.getCustomer(customerId);
+		Customer customer = customerService.getCustomer(customerId);
 		model.addAttribute("customer", customer);
 		return "add-customer";
 	}
@@ -42,7 +43,7 @@ public class CustomerController {
 	@RequestMapping("/delete")
 	public String deleteCustomer(@RequestParam("customerId") Long customerId, Model model) {
 		// fetch the customer from db
-		customerDao.deleteCustomer(customerId);
+		customerService.deleteCustomer(customerId);
 		return listCustomer(model);
 	}
 	
@@ -50,9 +51,9 @@ public class CustomerController {
 	@RequestMapping("/save")
 	public String saveCustomer(@ModelAttribute("customer") Customer customer, Model model) {
 
-		customerDao.addOrupdateCustomer(customer);
+		customerService.addOrupdateCustomer(customer);
 
-		List<Customer> customers = customerDao.getCustomers();
+		List<Customer> customers = customerService.getCustomers();
 		model.addAttribute("customers", customers);
 		return "list-customers";
 	}
@@ -60,7 +61,7 @@ public class CustomerController {
 	@Transactional
 	@RequestMapping("/list")
 	public String listCustomer(Model model) {
-		List<Customer> customers = customerDao.getCustomers();
+		List<Customer> customers = customerService.getCustomers();
 		model.addAttribute("customers", customers);
 		return "list-customers";
 	}
