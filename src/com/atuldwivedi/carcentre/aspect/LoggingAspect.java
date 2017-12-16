@@ -1,5 +1,6 @@
 package com.atuldwivedi.carcentre.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -14,12 +15,12 @@ public class LoggingAspect {
 	public void allMethods() {}
 
 	@Before("allMethods()")
-	public void methodEntryLog() {
-		System.out.println("==> Method started");
+	public void methodEntryLog(JoinPoint joinpoint) {
+		System.out.println(">> "+joinpoint.getSignature()+" started");
 	}
 	
 	@AfterReturning("execution(* com.atuldwivedi.carcentre.*.*.*(..))")
-	public void emthodExit() {
-		System.out.println("<== Method finished");
+	public void emthodExit(JoinPoint joinpoint) {
+		System.out.println("<< "+joinpoint.getSignature()+" finished");
 	}
 }
