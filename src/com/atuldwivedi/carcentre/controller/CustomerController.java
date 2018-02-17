@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.atuldwivedi.carcentre.dao.CustomerDao;
@@ -48,15 +49,22 @@ public class CustomerController {
 	}
 	
 	@Transactional
-	@RequestMapping("/save")
+	@RequestMapping(value="/save")
 	public String saveCustomer(@ModelAttribute("customer") Customer customer, Model model) {
 
 		customerService.addOrupdateCustomer(customer);
 
 		List<Customer> customers = customerService.getCustomers();
 		model.addAttribute("customers", customers);
-		return "list-customers";
+		return listCustomer(model);
+		//return "redirect:/toSaveCustomerDetach";
 	}
+	
+
+/*	@RequestMapping(value="/toSaveCustomerDetach", method=RequestMethod.GET)
+	public String saveCustomerDetach(Model model) {
+		return listCustomer(model);
+	}*/
 	
 	@Transactional
 	@RequestMapping("/list")
