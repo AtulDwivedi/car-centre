@@ -26,6 +26,9 @@ html {
   margin-right: auto;
   margin-left: auto;
 }
+.sortable tr {
+    cursor: pointer;
+}
 
 @media (min-width: 576px) {
   .container {

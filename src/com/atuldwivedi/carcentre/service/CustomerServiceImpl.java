@@ -1,5 +1,8 @@
 package com.atuldwivedi.carcentre.service;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +46,43 @@ public class CustomerServiceImpl implements CustomerService {
 	public void deleteCustomer(Long customerId) {
 		customerDao.deleteCustomer(customerId);
 	}
+
+	@Override
+	public List<Customer> sortCustomer(List<Customer> customers, String sortBy) {
+		
+	switch(sortBy) {
+	
+		case "FIRSTNAME":
+			Collections.sort(customers, new Comparator<Customer>() {
+				@Override 
+				public int compare(Customer c1, Customer c2) {
+					return (int)c1.getFirstName().compareTo(c2.getFirstName());
+				}
+			}); break;
+			
+		case "LASTNAME":
+			Collections.sort(customers, new Comparator<Customer>() {
+				@Override 
+				public int compare(Customer c1, Customer c2) {
+					return (int)c1.getLastName().compareTo(c2.getLastName());
+				}
+			});  break;
+			
+		case "AGE":
+			Collections.sort(customers, new Comparator<Customer>() {
+				@Override 
+				public int compare(Customer c1, Customer c2) {
+					return (int)c1.getAge().compareTo(c2.getAge());
+				}
+			});  break;
+			
+		default:
+			
+	}
+		return customers;
+		
+	}
+	
+	
 
 }

@@ -19,6 +19,17 @@
 </head>
 <body>
 	<jsp:include page="top-navbar.jsp" />
+	
+	<c:url var="sortfn" value="sort">
+		<c:param name="sortBy" value="FIRSTNAME" />
+	</c:url>
+	<c:url var="sortln" value="sort">
+		<c:param name="sortBy" value="LASTNAME" />
+	</c:url>
+	<c:url var="sorta" value="sort">
+		<c:param name="sortBy" value="AGE" />
+	</c:url>
+	
 
 	<div class="row">
 		<div class="col-lg-1">&nbsp;</div>
@@ -26,10 +37,10 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th scope="col">Customer Id</th>
-						<th scope="col">First Name</th>
-						<th scope="col">Last Name</th>
-						<th scope="col">Age</th>
+						<th scope="col">Sl No</th>
+						<th scope="col"><a href="${sortfn}">First Name</a></th>
+						<th scope="col"><a href="${sortln}">Last Name</a></th>
+						<th scope="col"><a href="${sorta}">Age</a></th>
 						<th scope="col">Actions</th>
 					</tr>
 				</thead>
@@ -43,7 +54,7 @@
 							<c:param name="customerId" value="${customer.customerID}" />
 						</c:url>
 						<tr>
-							<th scope="row">${customer.customerID}</th>
+							<th scope="row"></th>
 							<td>${customer.firstName}</td>
 							<td>${customer.lastName}</td>
 							<td>${customer.age}</td>

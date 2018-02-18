@@ -17,5 +17,7 @@ public interface CustomerService {
 	public void addOrupdateCustomer(Customer customer);
 	
 	public void deleteCustomer(Long customerId);
+	
+	public  List<Customer> sortCustomer(List<Customer> customer,String shotBy);
 
 }

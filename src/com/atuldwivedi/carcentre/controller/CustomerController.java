@@ -74,5 +74,16 @@ public class CustomerController {
 		return "list-customers";
 	}
 	
+	@Transactional
+	@RequestMapping("/sort")
+	public String shotCustomer(@RequestParam("sortBy") String sortBy,Model model) {
+		
+		List<Customer> customers = customerService.getCustomers();
+		List<Customer> customersShortedByName = customerService.sortCustomer(customers, sortBy);
+		
+		model.addAttribute("customers", customersShortedByName);
+		return "list-customers";
+	}
+	
 	
 }
