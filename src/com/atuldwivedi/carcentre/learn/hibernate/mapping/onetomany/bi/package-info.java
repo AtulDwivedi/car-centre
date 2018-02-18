@@ -1,1 +1,0 @@
-package com.atuldwivedi.carcentre.learn.hibernate.mapping.onetomany.bi;

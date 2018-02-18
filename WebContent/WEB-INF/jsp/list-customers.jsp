@@ -29,7 +29,7 @@
 						<th scope="col">Customer Id</th>
 						<th scope="col">First Name</th>
 						<th scope="col">Last Name</th>
-						<th scope="col">Email</th>
+						<th scope="col">Age</th>
 						<th scope="col">Actions</th>
 					</tr>
 				</thead>
