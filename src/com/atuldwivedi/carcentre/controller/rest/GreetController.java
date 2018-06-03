@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.atuldwivedi.carcentre.domain.Message;
 
-@RestController
+//@RestController
 public class GreetController implements Serializable {
 	
 	private Map<String, Message> msgMap;
 	
-	@PostConstruct
+	//@PostConstruct
 	public void createData() {
 		msgMap = new HashMap<String, Message>();
 		msgMap.put("mor", new Message("Morning", "Good Morning!"));
@@ -26,7 +26,7 @@ public class GreetController implements Serializable {
 		msgMap.put("eve", new Message("Evening", "Good Evening!"));
 	}
 
-	@RequestMapping(value="/greet", method=RequestMethod.GET)
+	//@RequestMapping(value="/greet", method=RequestMethod.GET)
 	public Message greetMe(/*@RequestParam("time") String theTime*/) {
 		return msgMap.get("eve");
 	}

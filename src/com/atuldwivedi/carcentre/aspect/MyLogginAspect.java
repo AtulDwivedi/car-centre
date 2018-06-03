@@ -19,11 +19,11 @@ public class MyLogginAspect {
 	@Pointcut("execution(* com.atuldwivedi.carcentre.*.*.*(..))")
 	public void allMethods() {}
 
-	/*@Before("allMethods()")
+	@Before("allMethods()")
 	@Order(2)
 	public void runBeforeEveryMethod(JoinPoint joinPoint) {
 		System.out.println("1>> "+this.getClass().getSimpleName()+" "+joinPoint.getSignature()+" started");
-	}*/
+	}
 	
 	/*@Before("allMethods()")
 	@Order(1)
@@ -69,7 +69,7 @@ public class MyLogginAspect {
 		return result;
 	}
 	
-	@AfterThrowing(pointcut="allMethods()", throwing="ex")
+	//@AfterThrowing(pointcut="allMethods()", throwing="ex")
 	public void afterTrowing(Throwable ex) {
 		System.out.println("----------------\n"+ex.getMessage());
 	}
